@@ -38,7 +38,8 @@ var config = {
   blockchainExplorerOpts: {
     livenet: {
       provider: 'insight',
-      url: 'https://insight.bitpay.com:443',
+      url: process.env.INSIGHT_LIVE_URL || 'http://localhost:3001',
+      apiPrefix: process.env.INSIGHT_LIVE_API_PREFIX || '/insight-api'
     },
     testnet: {
       provider: 'insight',
@@ -46,7 +47,7 @@ var config = {
       // url: 'http://localhost:3001',
       // Multiple servers (in priority order)
       // url: ['http://a.b.c', 'https://test-insight.bitpay.com:443'],
-    },
+    }
   },
   pushNotificationsOpts: {
     templatePath: './lib/templates',
