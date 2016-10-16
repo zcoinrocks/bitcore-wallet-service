@@ -77,5 +77,8 @@
   }, {
     "name": "Matias Alejo Garcia",
     "email": "ematiu@gmail.com"
-  }]
+  }],
+  "engines": {
+    "node": "6.7.0"
+  }
 }
