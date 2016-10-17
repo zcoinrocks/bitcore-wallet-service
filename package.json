@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "async": "^0.9.2",
-    "bitcore-lib": "zcoinrocks/bitcore-lib#zcoin",
+    "bitcore-lib": "zcoinrocks/bitcore-lib#0ef5b45784c3686f86d398a59baadbc3a0bdee3c",
     "body-parser": "^1.11.0",
     "compression": "^1.6.2",
     "coveralls": "^2.11.2",
