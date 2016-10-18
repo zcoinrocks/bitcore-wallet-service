@@ -12,7 +12,7 @@ A Multisig HD Bitcore Wallet Service.
 Bitcore Wallet Service facilitates multisig HD wallets creation and operation through a (hopefully) simple and intuitive REST API.
 
 BWS can usually be installed within minutes and accommodates all the needed infrastructure for peers in a multisig wallet to communicate and operate – with minimum server trust.
-  
+
 See [Bitcore-wallet-client] (https://github.com/bitpay/bitcore-wallet-client) for the *official* client library that communicates to BWS and verifies its response. Also check [Bitcore-wallet] (https://github.com/bitpay/bitcore-wallet) for a simple CLI wallet implementation that relays on BWS.
 
 BWS have a extensive test suite but have not been tested on production environments yet and have been recently released, so it it is still should be considered  BETA software.  
@@ -29,7 +29,7 @@ This will launch the BWS service (with default settings) at `http://localhost:32
 
 BWS needs mongoDB. You can configure the connection at `config.js`
 
-BWS supports SSL and Clustering. For a detailed guide on installing BWS with extra features see [Installing BWS](https://github.com/bitpay/bitcore-wallet-service/blob/master/installation.md). 
+BWS supports SSL and Clustering. For a detailed guide on installing BWS with extra features see [Installing BWS](https://github.com/bitpay/bitcore-wallet-service/blob/master/installation.md).
 
 # Security Considerations
  * Private keys are never sent to BWS. Copayers store them locally.
@@ -60,11 +60,11 @@ Returns:
  * Wallet object. (see [fields on the source code](https://github.com/bitpay/bitcore-wallet-service/blob/master/lib/model/wallet.js)).
 
 `/v1/txhistory/`: Get Wallet's transaction history
- 
+
 Optional Arguments:
  * skip: Records to skip from the result (defaults to 0)
  * limit: Total number of records to return (return all available records if not specified).
- 
+
 Returns:
  * History of incoming and outgoing transactions of the wallet. The list is paginated using the `skip` & `limit` params. Each item has the following fields:
  * action ('sent', 'received', 'moved')
@@ -77,8 +77,8 @@ Returns:
  * creatorName
  * message
  * actions array ['createdOn', 'type', 'copayerId', 'copayerName', 'comment']
-  
- 
+
+
 `/v1/txproposals/`:  Get Wallet's pending transaction proposals and their status
 Returns:
  * List of pending TX Proposals. (see [fields on the source code](https://github.com/bitpay/bitcore-wallet-service/blob/master/lib/model/txproposal.js))
@@ -99,18 +99,18 @@ Returns:
  * availableConfirmedAmount: Same as availableAmount for confirmed UTXOs only.
  * byAddress array ['address', 'path', 'amount']: A list of addresses holding funds.
  * totalKbToSendMax: An estimation of the number of KiB required to include all available UTXOs in a tx (including unconfirmed).
- 
+
 ## POST Endpoints
 `/v1/wallets/`: Create a new Wallet
 
  Required Arguments:
- * name: Name of the wallet 
- * m: Number of required peers to sign transactions 
+ * name: Name of the wallet
+ * m: Number of required peers to sign transactions
  * n: Number of total peers on the wallet
  * pubKey: Wallet Creation Public key to check joining copayer's signatures (the private key is unknown by BWS and must be communicated
   by the creator peer to other peers).
 
-Returns: 
+Returns:
  * walletId: Id of the new created wallet
 
 
@@ -149,41 +149,41 @@ Returns:
 
 Required Arguments:
  * signatures:  All Transaction's input signatures, in order of appearance.
-  
+
 Returns:
  * TX Proposal object. (see [fields on the source code](https://github.com/bitpay/bitcore-wallet-service/blob/master/lib/model/txproposal.js)). `.status` is probably needed in this case.
-  
+
 `/v1/txproposals/:id/broadcast/`: Broadcast a transaction proposal
- 
+
 Returns:
  * TX Proposal object. (see [fields on the source code](https://github.com/bitpay/bitcore-wallet-service/blob/master/lib/model/txproposal.js)). `.status` is probably needed in this case.
-  
+
 `/v1/txproposals/:id/rejections`: Reject a transaction proposal
- 
+
 Returns:
  * TX Proposal object. (see [fields on the source code](https://github.com/bitpay/bitcore-wallet-service/blob/master/lib/model/txproposal.js)). `.status` is probably needed in this case.
 
 `/v1/addresses/scan`: Start an address scan process looking for activity.
 
  Optional Arguments:
- * includeCopayerBranches: Scan all copayer branches following BIP45 recommendation (defaults to false). 
+ * includeCopayerBranches: Scan all copayer branches following BIP45 recommendation (defaults to false).
 
-  
+
 ## DELETE Endpoints
 `/v1/txproposals/:id/`: Deletes a transaction proposal. Only the creator can delete a TX Proposal, and only if it has no other signatures or rejections
 
  Returns:
  * TX Proposal object. (see [fields on the source code](https://github.com/bitpay/bitcore-wallet-service/blob/master/lib/model/txproposal.js)). `.id` is probably needed in this case.
-   
+
 # Push Notifications
 ## Installation
 
   In order to use push notifications service, you need install:
-  
+
   * [node-pushserver](https://www.npmjs.com/package/node-pushserver)
 
   Recomended to complete config.js file:
-  
+
   * [GCM documentation to get your API key](https://developers.google.com/cloud-messaging/gcm)
   * [Apple's Notification guide to know how to get your certificates for APN](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/Introduction.html)
 
@@ -194,8 +194,3 @@ Returns:
 
 ## DELETE Endopints
 `/v1/pushnotifications/subscriptions/`: Remove subscriptions for push notifications service from database.
-
- 
-
-
-
