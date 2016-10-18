@@ -2,7 +2,7 @@
 # bitcore-wallet-service
 
 [![NPM Package](https://img.shields.io/npm/v/bitcore-wallet-service.svg?style=flat-square)](https://www.npmjs.org/package/bitcore-wallet-service)
-[![Build Status](https://img.shields.io/travis/bitpay/bitcore-wallet-service.svg?branch=master&style=flat-square)](https://travis-ci.org/bitpay/bitcore-wallet-service)
+[ ![Codeship Status for zcoinrocks/bitcore-wallet-service](https://codeship.com/projects/511d7b90-77b7-0134-da23-5251019101b9/status?branch=master)](https://codeship.com/projects/180001)
 [![Coverage Status](https://coveralls.io/repos/bitpay/bitcore-wallet-service/badge.svg?branch=master)](https://coveralls.io/r/bitpay/bitcore-wallet-service?branch=master)
 
 A Multisig HD Bitcore Wallet Service.
